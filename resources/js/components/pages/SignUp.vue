@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderAuth />
     <div class="card">
       <p>新規登録</p>
       <div class="form">
@@ -13,20 +12,10 @@
        <p class="account-yes">※すでにアカウントお持ちの方は<span @click="$router.push('/login')">コチラ</span></p>
       </div>
     </div>
-    <FooterAuth />
   </div>
 </template>
 
-<script>
-import HeaderAuth from "../components/HeaderAuth";
-import FooterAuth from "../components/FooterAuth";
-export default {
-  components: {
-    HeaderAuth,
-    FooterAuth,
-  },
-};
-</script>
+
 
 <style scoped>
 button {

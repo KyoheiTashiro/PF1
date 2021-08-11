@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderAuth />
     <div class="top-card">
       <p>以下やりたいこと</p>
       <p>横長の画像(本アプリのバナー的な,車,サーキットなど)を4~5枚をスライドショー表示</p>
@@ -18,19 +17,18 @@
     <div class="search-course">
       <p>コースの画像を選んで検索、コース別イベント一覧表示のページに飛ぶ</p>
     </div>
-    <FooterAuth />
   </div>
 </template>
 
 <script>
-import HeaderAuth from "..resources/js/components/component/HeaderAuth";
-import FooterAuth from "..resources/js/components/component/FooterAuth";
-export default {
-  components: {
-    HeaderAuth,
-    FooterAuth,
-  },
-};
+// import HeaderAuth from "../component/HeaderAuth";
+// import FooterAuth from "@/components/component/FooterAuth";
+// export default {
+//   components: {
+//     HeaderAuth,
+//     FooterAuth,
+//   },
+// };
 </script>
 
 <style scoped>

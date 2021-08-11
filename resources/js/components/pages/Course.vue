@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderAuth />
      <div class="select-course">
       <div class="course-card">
         <div class="fsw-card" @click="$router.push('/fsw')">
@@ -18,27 +17,16 @@
         </div>
       </div>
      </div>
-    <FooterAuth />
   </div>
 </template>
 
-<script>
-import HeaderAuth from "../components/HeaderAuth";
-import FooterAuth from "../components/FooterAuth";
-export default {
-  components: {
-    HeaderAuth,
-    FooterAuth,
-  },
-};
-</script>
 
 <style scoped>
 .select-course{
   position: relative;
 }
 .fsw-card{
-  background-image: url("../assets/fsw-course.jpg");
+  /* background-image: url("../assets/fsw-course.jpg"); */
   height: 300px;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -50,7 +38,7 @@ export default {
   font-weight: bold;
 }
 .tc-card{
-  background-image: url("../assets/tc-course.jpg");
+  /* background-image: url("../assets/tc-course.jpg"); */
   height: 300px;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -62,7 +50,7 @@ export default {
   font-weight: bold;
 }
 .mtg-card{
-  background-image: url("../assets/mtg-course.jpg");
+  /* background-image: url("../assets/mtg-course.jpg"); */
   height: 300px;
   cursor: pointer;
   background-repeat: no-repeat;

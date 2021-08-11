@@ -1,6 +1,5 @@
 <template>
   <div>
-    <HeaderAuth />
     <div class="card">
       <p>ログイン</p>
       <div class="form">
@@ -16,20 +15,10 @@
         </p>
       </div>
     </div>
-    <FooterAuth />
   </div>
 </template>
 
-<script>
-import HeaderAuth from "../components/HeaderAuth";
-import FooterAuth from "../components/FooterAuth";
-export default {
-  components: {
-    HeaderAuth,
-    FooterAuth,
-  },
-};
-</script>
+
 
 <style scoped>
 button {

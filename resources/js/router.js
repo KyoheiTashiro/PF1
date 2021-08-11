@@ -1,11 +1,10 @@
-require("./bootstrap");
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-window.Vue = require("vue");
-import vuetify from "./vuetify";
-import router from "./router";
+Vue.use(VueRouter);
 
 
-import Home from '../resources/components/pages/Home.vue'
+import Home from './components/pages/Home.vue'
 import Login from './components/pages/Login.vue'
 import SignUp from './components/pages/SignUp.vue'
 import Schedule from './components/pages/Schedule.vue'
@@ -66,11 +65,5 @@ const routes = [
   }
 ]
 
-const app = new Vue({
-el: "#app",
-router,
-vuetify,
-components: {
-"example-component": Example
-    }
-});
+
+export default new VueRouter({ routes });
