@@ -4,8 +4,11 @@
       <p>以下やりたいこと</p>
       <p>横長の画像(本アプリのバナー的な,車,サーキットなど)を4~5枚をスライドショー表示</p>
       <p>ログイン前と後でヘッダー切替</p>
-      <p>イベントの詳細情報ページ→動的ルートマッチング使う・開催2週間以内の場合は当日の天気予報表示とか</p>
+      <p>
+        イベントの詳細情報ページ→動的ルートマッチング使う・開催2週間以内の場合は当日の天気予報表示とか
+      </p>
     </div>
+
     <div class="top-ivent">
       <li>
         <p>イベント開催日時が現在時刻から近い順に10件</p>
@@ -20,16 +23,6 @@
   </div>
 </template>
 
-<script>
-// import HeaderAuth from "../component/HeaderAuth";
-// import FooterAuth from "@/components/component/FooterAuth";
-// export default {
-//   components: {
-//     HeaderAuth,
-//     FooterAuth,
-//   },
-// };
-</script>
+<script></script>
 
-<style scoped>
-</style>
+<style scoped></style>

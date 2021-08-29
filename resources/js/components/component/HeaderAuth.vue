@@ -18,16 +18,14 @@
 </template>
 
 <script>
-import { defineComponent } from '@vue/composition-api'
+// import { defineComponent } from '@vue/composition-api'
 
-export default defineComponent({
-  setup() {
-    
-  },
-})
+// export default defineComponent({
+//   setup() {
+
+//   },
+// })
 </script>
-
-
 
 <style scoped>
 .right {
@@ -54,6 +52,8 @@ export default defineComponent({
 .search-category input {
   margin-left: 30px;
   width: 130px;
+  border: solid 1px black;
+  border-radius: 4px;
 }
 .search-category button {
   cursor: pointer;
@@ -66,6 +66,5 @@ export default defineComponent({
 }
 .flex {
   display: flex;
-  justify-content: space-between;
 }
 </style>

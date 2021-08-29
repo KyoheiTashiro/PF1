@@ -21,7 +21,7 @@ const routes = [
   path: '/home',
   name: 'home',
   component: Home
-}, {
+}  ,{
   path: '/login',
   name: 'login',
   component: Login
@@ -66,4 +66,7 @@ const routes = [
 ]
 
 
-export default new VueRouter({ routes });
+export default new VueRouter({
+  mode:'history',
+  routes
+});

@@ -1,17 +1,26 @@
 <template>
     <div>
-  <HeaderAuth/>
+      <HeaderAuth/>
 <!-- //pagesに作って、router.jsで読み込んだファイルはこのrouter-viewの範囲で表示が切り替わる -->
-  <router-view></router-view>
-  <FooterAuth/>
-</div>
+     <router-view></router-view>
+     <FooterAuth/>
+    </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+import HeaderAuth from "@/component/HeaderAuth";
+import FooterAuth from "@/component/FooterAuth";
+export default {
+  components: {
+    HeaderAuth,
+    FooterAuth
+  },
+}
 </script>
+
+
+
+
+
+
 
