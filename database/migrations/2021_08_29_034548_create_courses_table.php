@@ -4,7 +4,7 @@
         use Illuminate\Database\Schema\Blueprint;
         use Illuminate\Database\Migrations\Migration;
         
-        class CreateEventsTable extends Migration
+        class CreateCoursesTable extends Migration
         {
             /**
              * Run the migrations.
@@ -13,14 +13,24 @@
              */
             public function up()
             {
-                Schema::create("events", function (Blueprint $table) {
+                Schema::create("courses", function (Blueprint $table) {
 
 						$table->increments('id');
 						$table->string('name')->nullable();
-						$table->datetime('date')->nullable();
-						$table->integer('entry_fee')->nullable();
-						$table->string('session_time')->nullable();
-						$table->integer('コースズのid')->nullable();
+						$table->string('location')->nullable();
+                        $table->timestamps();
+                        $table->softDeletes();
+
+
+
+						// ----------------------------------------------------
+						// -- SELECT [courses]--
+						// ----------------------------------------------------
+						// $query = DB::table("courses")
+						// ->get();
+						// dd($query); //For checking
+
+
 
                 });
             }
@@ -32,7 +42,7 @@
              */
             public function down()
             {
-                Schema::dropIfExists("events");
+                Schema::dropIfExists("courses");
             }
         }
     

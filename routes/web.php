@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Ajax\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('event', 'EventController@index');
+
+Route::get('ajax/event', [EventController::class, 'index']);
 
 Route::get('/{any}', function () {
     return view('welcome');
