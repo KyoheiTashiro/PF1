@@ -1,11 +1,20 @@
 <template>
   <div>
+    <!-- <div class="acordion" @click="showContent">
+      <div class="acordion-title"><p>アコーディオンメニュー</p></div>
+      <div v-if="isContentActive" class="acordion-content">
+        <p>vueでアコーディオンメニューを実装しました。</p>
+      </div>
+    </div> -->
     <div class="top-card">
       <p>以下やりたいこと</p>
-      <p>横長の画像(本アプリのバナー的な,車,サーキットなど)を4~5枚をスライドショー表示</p>
+      <p>
+        横長の画像(本アプリのバナー的な,車,サーキットなど)を4~5枚をスライドショー表示(なんか古い)
+      </p>
+      <p>サービス機能の簡単な紹介ページ</p>
       <p>ログイン前と後でヘッダー切替</p>
       <p>
-        イベントの詳細情報ページ→動的ルートマッチング使う・開催2週間以内の場合は当日の天気予報表示とか
+        イベントの詳細情報ページ→動的ルートマッチング使う(詳細ページは今回無し)・開催2週間以内の場合は当日の天気予報表示とか
       </p>
     </div>
 
@@ -23,6 +32,35 @@
   </div>
 </template>
 
-<script></script>
+<script>
+// export default {
+//   // name: 'accordionMenu',
+//   data: function() {
+//     return {
+//       isContentActive: false,
+//     };
+//   },
+//   methods: {
+//     showContent: function() {
+//       this.isContentActive = !this.isContentActive;
+//     },
+//   },
+// };
+</script>
 
-<style scoped></style>
+<style scoped>
+/* .acordion {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  cursor: pointer;
+}
+
+.acordion-title {
+  padding: 5px;
+}
+
+.acordion-content {
+  border-top: 0.5px solid gray;
+} */
+</style>

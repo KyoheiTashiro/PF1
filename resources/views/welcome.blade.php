@@ -14,7 +14,6 @@
         <v-app id="app">
             <app-component />
         </v-app>
-
         <script src="{{mix('js/app.js')}}"></script>
     </body>
 </html>

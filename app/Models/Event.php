@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    use HasFactory;
+    // use HasFactory;
+    public function courseLocation()
+    {
+       return $this->belongsTo('App\Models\Course','course_id');
+    }
 }

@@ -18,6 +18,7 @@
 						$table->increments('id');
 						$table->string('name')->nullable();
 						$table->string('location')->nullable();
+                        $table->string('keyword')->nullable();
                         $table->timestamps();
                         $table->softDeletes();
 

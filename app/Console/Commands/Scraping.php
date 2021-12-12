@@ -8,6 +8,9 @@ use Weidner\Goutte\GoutteFacade;
 
 use App\Models\Event;
 
+use App\Models\Course;
+use DateTime;
+
 class Scraping extends Command
 {
     /**
@@ -60,19 +63,33 @@ class Scraping extends Command
                         \Log::info($i);
                             if($i == 0){
                                 \Log::info("0のときここを通る");
-                                $text =  mb_convert_encoding($d->text(), "UTF-8");
-                                $model = new Event;
-                                $model->date = $text;
+                                $text=mb_convert_encoding($d->text(), "UTF-8");
+                                $model=new Event;
+                                $explode=explode('/',$text);
+                                $convert=preg_replace('/[^0-9]/','',$explode);
+                                $year=date("Y");
+                                $date=$year."-".$convert[0]."-".$convert[1];                                       
+                                $model->date=$date;
                                 $model->save();
                                 //日付を保存する処理
                             } elseif($i==1){
                                 \Log::info("1のときここを通る");
-                                $text =  mb_convert_encoding($d->text(), "UTF-8");
-                                // $model = new Event;
+                                $text=mb_convert_encoding($d->text(), "UTF-8");
                                 $model=Event::orderBy('id','desc')->first();
                                 $model->name = $text;
-                                $model->save();
-                                // イベント名を保存する処理
+                                $model->save();//イベント名を保存する処理
+                                $courses = Course::all();
+                                foreach($courses as $course){
+                                $keyWord = $course->keyword;
+                                if(strpos($model->name,$keyWord) !== false){
+                                    $id=$course->id;
+                                    $model->course_id = $id;
+                                    $model->save();//イベント名に合うコースidを保存する処理
+                                    }
+                                }
+                                $url=$d->filter('a')->attr('href');
+                                $model->source_url =$url;
+                                $model->save();//イベントURLを保存する処理
                             }
                     });
                 });
@@ -82,8 +99,6 @@ class Scraping extends Command
         dd($text);
 
         
-  
-
 
 
 

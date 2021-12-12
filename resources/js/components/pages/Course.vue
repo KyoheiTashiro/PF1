@@ -3,7 +3,7 @@
      <div class="select-course">
       <div class="course-card">
         <div class="fsw-card" @click="$router.push('/fsw')">
-         <p>富士スピードウェイ</p>
+         <p class="text-red-500">富士スピードウェイ</p>
         </div>
       </div>
       <div class="course-card">

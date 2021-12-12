@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('event', 'EventController@index');
+// Route::get('event', 'EventController@index');
 
 Route::get('ajax/event', [EventController::class, 'index']);
 

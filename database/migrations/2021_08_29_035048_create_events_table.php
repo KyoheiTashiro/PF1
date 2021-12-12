@@ -17,10 +17,11 @@
 
 						$table->increments('id');
 						$table->string('name')->nullable();
-						$table->string('date')->nullable();
+						$table->date('date')->nullable();
 						$table->integer('entry_fee')->nullable();
 						$table->string('session_time')->nullable();
 						$table->integer('course_id')->nullable()->unsigned();
+                        $table->string('source_url')->nullable();
                         $table->timestamps();
                         $table->softDeletes();
 						
