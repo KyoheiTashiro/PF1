@@ -2,7 +2,7 @@
   <div>
     <HeaderAuth />
     <!-- //pagesに作って、router.jsで読み込んだファイルはrouter-viewの範囲で表示が切り替わる -->
-    <router-view></router-view>
+    <router-view :key="$route.fullPath"></router-view>
     <FooterAuth />
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="p-6 text-2xl">富士スピードウェイ イベント一覧</p>
+    <p class="p-6 text-2xl">{{ this.$route.params.month }}月 イベント一覧</p>
     <EventLists :events="events" />
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   components: { EventLists },
   data() {
     return {
-      events: [], //FswControllerから帰ってきたeventsという名前のデータ
+      events: [], //MonthEventControllerから帰ってきたeventsという名前のデータ
     };
   },
   created() {
@@ -21,10 +21,10 @@ export default {
   methods: {
     test: function() {
       axios
-        .get('api/event/7')
+        .get('/api/event/month/' + this.$route.params.month) 
         .then(res => {
           console.log(res);
-          this.events = res.data.events; //FswControllerから帰ってきたeventsという名前のデータ
+          this.events = res.data.events; //MonthEventControllerから帰ってきたeventsという名前のデータ
         })
         .catch(err => {
           console.log(err);

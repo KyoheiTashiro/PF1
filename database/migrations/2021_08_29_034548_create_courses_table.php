@@ -19,6 +19,7 @@
 						$table->string('name')->nullable();
 						$table->string('location')->nullable();
                         $table->string('keyword')->nullable();
+                        $table->string('api_keyword')->nullable();
                         $table->timestamps();
                         $table->softDeletes();
 

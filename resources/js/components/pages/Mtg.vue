@@ -1,14 +1,40 @@
 <template>
   <div>
-   <p class="title">ツインリンクもてぎ イベント一覧</p>
-   <p class="main">スクレイピング結果表示</p>
+    <p class="p-6 text-2xl">ツインリンクもてぎ イベント一覧</p>
+    <EventLists :events="events" />
   </div>
 </template>
 
+<script>
+import EventLists from '../component/EventLists.vue';
+import moment from 'moment';
+export default {
+  components: { EventLists },
+  data() {
+    return {
+      events: [], //FswControllerから帰ってきたeventsという名前のデータ
+    };
+  },
+  created() {
+    this.test();
+  },
+  methods: {
+    test: function() {
+      axios
+        .get('api/event/8')
+        .then(res => {
+          console.log(res);
+          this.events = res.data.events; //FswControllerから帰ってきたeventsという名前のデータ
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    moment(date, format) {
+      return moment(date).format(format);
+    },
+  },
+};
+</script>
 
-
-
-<style scoped>
-
-
-</style>
+<style scoped></style>

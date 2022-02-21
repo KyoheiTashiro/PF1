@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\Ajax\EventController;
+use App\Http\Controllers\Ajax\FswController;
+use App\Http\Controllers\Ajax\MonthEventController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +20,17 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('event', 'EventController@index');
 
-Route::get('ajax/event', [EventController::class, 'index']);
+
+Route::get('api/event', [EventController::class, 'index']);
+Route::get('api/event/course/{any}', [FswController::class, 'search']);
+Route::get('api/event/month/{any}', [MonthEventController::class, 'month']);
+
 
 Route::get('/{any}', function () {
     return view('welcome');
-});
+})->where('any','.*');
+
+// Route::get('/{any}/{other}', function () {
+//     dd('kokotootteruka?');
+//     return view('welcome');
+// });

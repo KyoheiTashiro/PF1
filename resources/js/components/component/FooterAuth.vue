@@ -1,6 +1,6 @@
 <template>
  <div class="footer">
-   <p class="copy-right">©2021 CircuitJunction Inc.</p>
+   <p class="copy-right">©2022 CircuitJunction Inc.</p>
  </div>
 </template>
 
