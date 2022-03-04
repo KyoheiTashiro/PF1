@@ -10,8 +10,10 @@ use App\Models\Event;
 class MonthEventController extends Controller
 {
     public function month($year_month){
-         $events = Event::where('date','like',"%$year_month%")
+         $events = Event::where('date','>=',$year_month.'-01')
+         ->where('date','<=',$year_month.'-31')
          ->with('courseLocation')
+         ->orderBy('date','asc')
          ->get();
          return response()->json(compact('events'),200); 
     }

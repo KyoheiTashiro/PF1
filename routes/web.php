@@ -3,6 +3,7 @@
 use App\Http\Controllers\Ajax\EventController;
 use App\Http\Controllers\Ajax\FswController;
 use App\Http\Controllers\Ajax\MonthEventController;
+use App\Http\Controllers\Ajax\SearchEventController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('api/event', [EventController::class, 'index']);
 Route::get('api/event/course/{any}', [FswController::class, 'search']);
 Route::get('api/event/month/{any}', [MonthEventController::class, 'month']);
+Route::get('api/event/search', [SearchEventController::class, 'search']);
 
 
 Route::get('/{any}', function () {

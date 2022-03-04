@@ -1856,6 +1856,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1888,6 +1890,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1902,11 +1905,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.test();
-  },
-  beforeRouteUpdate: function beforeRouteUpdate(to, from, next) {
-    // `this` を使用
-    this.name = to.params.name;
-    next();
   },
   methods: {
     test: function test() {
@@ -1940,6 +1938,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
 //
 //
 //
@@ -2025,6 +2026,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -2032,7 +2036,8 @@ __webpack_require__.r(__webpack_exports__);
       ThisMonth: moment__WEBPACK_IMPORTED_MODULE_0___default()().format('YYYY-MM'),
       NextMonth: moment__WEBPACK_IMPORTED_MODULE_0___default()().add(1, 'month').format('YYYY-MM'),
       isOpenSchedule: false,
-      isOpenCourse: false
+      isOpenCourse: false,
+      search_keyword: ''
     };
   },
   mounted: function mounted() {
@@ -2066,9 +2071,9 @@ __webpack_require__.r(__webpack_exports__);
       if (this.isOpenCourse) {
         this.isOpenCourse = false;
       }
-    } // moment(date, format) {
-    //   date = new Date();
-    //   return moment(date).format(format);
+    } // SendKeyword() {
+    //   this.$emit('send-keyword', this.keyword);
+    //   this.keyword = '';
     // },
 
   }
@@ -2090,6 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _component_EventLists_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../component/EventLists.vue */ "./resources/js/components/component/EventLists.vue");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+//
 //
 //
 //
@@ -2226,6 +2232,65 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchEventComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchEventComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _component_EventLists_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../component/EventLists.vue */ "./resources/js/components/component/EventLists.vue");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    EventLists: _component_EventLists_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  data: function data() {
+    return {
+      events: [] //MonthEventControllerから帰ってきたeventsという名前のデータ
+
+    };
+  },
+  created: function created() {
+    this.test();
+  },
+  methods: {
+    test: function test() {
+      var _this = this;
+
+      var query = window.location.search;
+      console.log(query);
+      axios // .get('/api/event/search?keyword=' + this.$route.query.keyword) //ヘッダーinputタグの検索キーワード(クエリ)をパラメータにしてAPIを叩く
+      .get('/api/event/search' + query) //ヘッダーinputタグの検索キーワード(クエリ)をパラメータにしてAPIを叩く
+      .then(function (res) {
+        console.log(res);
+        _this.events = res.data.events; //SearchEventControllerから帰ってきたeventsという名前のデータ
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    moment: function moment(date, format) {
+      return moment__WEBPACK_IMPORTED_MODULE_1___default()(date).format(format);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -2340,7 +2405,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_pages_Login_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/pages/Login.vue */ "./resources/js/components/pages/Login.vue");
 /* harmony import */ var _components_pages_SignUp_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/pages/SignUp.vue */ "./resources/js/components/pages/SignUp.vue");
 /* harmony import */ var _components_pages_Mylist_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/pages/Mylist.vue */ "./resources/js/components/pages/Mylist.vue");
-/* harmony import */ var _components_pages_SearchResults_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pages/SearchResults.vue */ "./resources/js/components/pages/SearchResults.vue");
+/* harmony import */ var _components_pages_SearchEventComponent_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/pages/SearchEventComponent.vue */ "./resources/js/components/pages/SearchEventComponent.vue");
 /* harmony import */ var _components_pages_Event_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/pages/Event.vue */ "./resources/js/components/pages/Event.vue");
 /* harmony import */ var _components_component_CourseEventComponent_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/component/CourseEventComponent.vue */ "./resources/js/components/component/CourseEventComponent.vue");
 /* harmony import */ var _components_component_MonthEventComponent_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/component/MonthEventComponent.vue */ "./resources/js/components/component/MonthEventComponent.vue");
@@ -2369,6 +2434,10 @@ var routes = [{
   path: '/events/month/:month',
   name: 'MonthEventComponent',
   component: _components_component_MonthEventComponent_vue__WEBPACK_IMPORTED_MODULE_9__.default
+}, {
+  path: '/events/search',
+  name: 'SearchEventComponent',
+  component: _components_pages_SearchEventComponent_vue__WEBPACK_IMPORTED_MODULE_6__.default
 }, {
   path: '/home',
   name: 'home',
@@ -2409,10 +2478,6 @@ var routes = [{
   path: '/mylist',
   name: 'mylist',
   component: _components_pages_Mylist_vue__WEBPACK_IMPORTED_MODULE_5__.default
-}, {
-  path: '/search-results',
-  name: 'search-results',
-  component: _components_pages_SearchResults_vue__WEBPACK_IMPORTED_MODULE_6__.default
 } // {
 //   path: '/event/this_month',
 //   name: 'ThisMonthEvent',
@@ -2515,7 +2580,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".right[data-v-dcf310dc]{align-items:center}.right p[data-v-dcf310dc]{cursor:pointer;margin-right:20px}.left[data-v-dcf310dc]{display:flex}.title[data-v-dcf310dc]{font-size:30px;font-weight:700}.search-category[data-v-dcf310dc]{align-items:center}.search-category p[data-v-dcf310dc]{cursor:pointer;margin-left:30px}.search-category input[data-v-dcf310dc]{border:1px solid #000;border-radius:4px;margin-left:30px;width:130px}.search-category button[data-v-dcf310dc]{cursor:pointer;margin-left:3px;padding-left:15px;padding-right:15px}.header[data-v-dcf310dc]{margin:20px}.flex[data-v-dcf310dc]{display:flex}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".right[data-v-dcf310dc]{align-items:center}.right p[data-v-dcf310dc]{cursor:pointer;margin-right:20px}.left[data-v-dcf310dc]{display:flex}.title[data-v-dcf310dc]{font-size:30px;font-weight:700}.search-category[data-v-dcf310dc]{align-items:center}.search-category p[data-v-dcf310dc]{cursor:pointer;margin-left:30px}.search-category input[data-v-dcf310dc]{align-items:center;border:1px solid #000;border-radius:4px;margin-left:30px;width:130px}.search-category button[data-v-dcf310dc]{align-items:center;cursor:pointer;margin-left:3px;padding-left:15px;padding-right:15px}.header[data-v-dcf310dc]{margin:20px}.flex[data-v-dcf310dc]{display:flex}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42360,10 +42425,10 @@ component.options.__file = "resources/js/components/pages/Mylist.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/SearchResults.vue":
-/*!*********************************************************!*\
-  !*** ./resources/js/components/pages/SearchResults.vue ***!
-  \*********************************************************/
+/***/ "./resources/js/components/pages/SearchEventComponent.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/pages/SearchEventComponent.vue ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -42371,28 +42436,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _SearchResults_vue_vue_type_template_id_61804a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchResults.vue?vue&type=template&id=61804a88&scoped=true& */ "./resources/js/components/pages/SearchResults.vue?vue&type=template&id=61804a88&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _SearchEventComponent_vue_vue_type_template_id_6817c73e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true& */ "./resources/js/components/pages/SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true&");
+/* harmony import */ var _SearchEventComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchEventComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/pages/SearchEventComponent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
-var script = {}
+
+
 
 
 /* normalize component */
 ;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
-  script,
-  _SearchResults_vue_vue_type_template_id_61804a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _SearchResults_vue_vue_type_template_id_61804a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _SearchEventComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _SearchEventComponent_vue_vue_type_template_id_6817c73e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _SearchEventComponent_vue_vue_type_template_id_6817c73e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "61804a88",
+  "6817c73e",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/pages/SearchResults.vue"
+component.options.__file = "resources/js/components/pages/SearchEventComponent.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -42549,6 +42616,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
 /* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default())); 
+
+/***/ }),
+
+/***/ "./resources/js/components/pages/SearchEventComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/pages/SearchEventComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchEventComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchEventComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchEventComponent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchEventComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -42787,19 +42870,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/pages/SearchResults.vue?vue&type=template&id=61804a88&scoped=true&":
-/*!****************************************************************************************************!*\
-  !*** ./resources/js/components/pages/SearchResults.vue?vue&type=template&id=61804a88&scoped=true& ***!
-  \****************************************************************************************************/
+/***/ "./resources/js/components/pages/SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/pages/SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true& ***!
+  \***********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResults_vue_vue_type_template_id_61804a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResults_vue_vue_type_template_id_61804a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchEventComponent_vue_vue_type_template_id_6817c73e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchEventComponent_vue_vue_type_template_id_6817c73e_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchResults_vue_vue_type_template_id_61804a88_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchResults.vue?vue&type=template&id=61804a88&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchResults.vue?vue&type=template&id=61804a88&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_SearchEventComponent_vue_vue_type_template_id_6817c73e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true&");
 
 
 /***/ }),
@@ -42875,9 +42958,13 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("p", { staticClass: "p-6 text-2xl" }, [
-        _vm._v(_vm._s(this.$route.params.course_name) + " イベント一覧")
-      ]),
+      _vm.events[0]
+        ? _c("p", { staticClass: "p-6 text-2xl" }, [
+            _vm._v(
+              _vm._s(_vm.events[0].course_location.name) + " 開催イベント一覧"
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _c("EventLists", { attrs: { events: _vm.events } })
     ],
@@ -42907,42 +42994,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table-auto" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.events, function(event) {
-        return _c("tr", { key: event.id }, [
-          _c("td", { staticClass: "px-4 py-3 text-lg" }, [
-            _vm._v(_vm._s(_vm.moment(event.date, "YYYY年MM月DD日")))
-          ]),
-          _vm._v(" "),
-          _c("td", { staticClass: "px-4 py-3 text-lg" }, [
-            _vm._v(_vm._s(event.name))
-          ]),
-          _vm._v(" "),
-          _c("td", { staticClass: "px-4 py-3 text-lg" }, [
-            _vm._v(_vm._s(event.course_location.location))
-          ]),
-          _vm._v(" "),
-          _c("td", { staticClass: "px-6 py-3 text-lg" }, [
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: event.source_url,
-                  target: "_blank",
-                  rel: "noopener"
-                }
-              },
-              [_vm._v("公式サイト")]
-            )
-          ])
+  return _c("div", [
+    _vm.events == 0
+      ? _c("p", { staticClass: "px-4 text-lg" }, [
+          _vm._v("該当するイベントは見つかりませんでした")
         ])
-      }),
-      0
-    )
+      : _c("table", { staticClass: "table-auto" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.events, function(event) {
+              return _c("tr", { key: event.id }, [
+                _c("td", { staticClass: "px-4 py-3 text-lg" }, [
+                  _vm._v(_vm._s(_vm.moment(event.date, "YYYY年M月D日")))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "px-4 py-3 text-lg" }, [
+                  _vm._v(_vm._s(event.name))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "px-4 py-3 text-lg" }, [
+                  _vm._v(_vm._s(event.course_location.location))
+                ]),
+                _vm._v(" "),
+                _c("td", { staticClass: "px-6 py-3 text-lg" }, [
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: event.source_url,
+                        target: "_blank",
+                        rel: "noopener"
+                      }
+                    },
+                    [_vm._v("公式サイト")]
+                  )
+                ])
+              ])
+            }),
+            0
+          )
+        ])
   ])
 }
 var staticRenderFns = [
@@ -42950,25 +43043,21 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { staticClass: "py-3 text-lg border-b-2  border-blue-700" }, [
-          _vm._v("開催日")
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "py-3 text-lg border-b-2 border-blue-700" }, [
-          _vm._v("イベント名")
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "py-3 text-lg border-b-2 border-blue-700" }, [
-          _vm._v("開催地")
-        ]),
-        _vm._v(" "),
-        _c("th", { staticClass: "py-3 text-lg border-b-2 border-blue-700" }, [
-          _vm._v("備考")
+    return _c(
+      "thead",
+      { staticClass: "py-3 text-lg border-b-2  border-blue-700" },
+      [
+        _c("tr", [
+          _c("th", [_vm._v("開催日")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("イベント名")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("開催地")]),
+          _vm._v(" "),
+          _c("th", [_vm._v("備考")])
         ])
-      ])
-    ])
+      ]
+    )
   }
 ]
 render._withStripped = true
@@ -43172,18 +43261,40 @@ var render = function() {
           ]
         ),
         _vm._v(" "),
-        _c("input", { attrs: { placeholder: "キーワード", type: "text" } }),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.search_keyword,
+              expression: "search_keyword"
+            }
+          ],
+          attrs: { placeholder: "キーワード", type: "text" },
+          domProps: { value: _vm.search_keyword },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.search_keyword = $event.target.value
+            }
+          }
+        }),
         _vm._v(" "),
         _c(
           "button",
           {
             on: {
               click: function($event) {
-                return _vm.$router.push("/search-results")
+                return _vm.$router.push({
+                  path: "/events/search",
+                  query: { keyword: _vm.search_keyword }
+                })
               }
             }
           },
-          [_vm._v("検索")]
+          [_vm._v("\n        検索\n      ")]
         )
       ])
     ]),
@@ -43242,7 +43353,10 @@ var render = function() {
     "div",
     [
       _c("p", { staticClass: "p-6 text-2xl" }, [
-        _vm._v(_vm._s(this.$route.params.month) + "月 イベント一覧")
+        _vm._v(
+          _vm._s(_vm.moment(this.$route.params.month, "YYYY年M月")) +
+            " 開催のイベント一覧"
+        )
       ]),
       _vm._v(" "),
       _c("EventLists", { attrs: { events: _vm.events } })
@@ -43440,10 +43554,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchResults.vue?vue&type=template&id=61804a88&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchResults.vue?vue&type=template&id=61804a88&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/pages/SearchEventComponent.vue?vue&type=template&id=6817c73e&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -43456,18 +43570,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    [
+      _c("p", { staticClass: "p-6 text-2xl" }, [
+        _vm._v("イベント キーワード検索結果 一覧")
+      ]),
+      _vm._v(" "),
+      _c("EventLists", { attrs: { events: _vm.events } })
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("p", [_vm._v("キーワードを含むイベント名を一覧で表示")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -13,6 +13,7 @@ class FswController extends Controller
              $query->where('api_keyword','=',$courseName);
          })
          ->with('courseLocation')
+         ->orderBy('date','asc')
          ->get();
          return response()->json(compact('events'),200); 
     }

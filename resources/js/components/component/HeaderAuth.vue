@@ -21,9 +21,12 @@
             <p @click="$router.push('/events/course/mihama')">美浜サーキット</p>
           </div>
         </div>
-
-        <input placeholder="キーワード" type="text" />
-        <button @click="$router.push('/search-results')">検索</button>
+        <input placeholder="キーワード" type="text" v-model="search_keyword" />
+        <button
+          @click="$router.push({ path: '/events/search', query: { keyword: search_keyword } })"
+        >
+          検索
+        </button>
       </div>
     </div>
     <div class="right flex">
@@ -44,6 +47,7 @@ export default {
         .format('YYYY-MM'),
       isOpenSchedule: false,
       isOpenCourse: false,
+      search_keyword: '',
     };
   },
   mounted() {
@@ -78,9 +82,9 @@ export default {
         this.isOpenCourse = false;
       }
     },
-    // moment(date, format) {
-    //   date = new Date();
-    //   return moment(date).format(format);
+    // SendKeyword() {
+    //   this.$emit('send-keyword', this.keyword);
+    //   this.keyword = '';
     // },
   },
 };
@@ -113,12 +117,14 @@ export default {
   width: 130px;
   border: solid 1px black;
   border-radius: 4px;
+   align-items: center;
 }
 .search-category button {
   cursor: pointer;
   margin-left: 3px;
   padding-right: 15px;
   padding-left: 15px;
+   align-items: center;
 }
 .header {
   margin: 20px;

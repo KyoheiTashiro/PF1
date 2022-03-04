@@ -11,7 +11,7 @@ import SignUp from './components/pages/SignUp.vue';
 // import Mtg from './components/pages/Mtg.vue';
 // import Mihama from './components/pages/Mihama.vue';
 import Mylist from './components/pages/Mylist.vue';
-import SearchResults from './components/pages/SearchResults.vue';
+import SearchEventComponent from './components/pages/SearchEventComponent.vue';
 import Event from './components/pages/Event.vue';
 // import ThisMonthEvent from './components/pages/ThisMonthEvent.vue';
 // import NextMonthEvent from './components/pages/NextMonthEvent.vue';
@@ -29,6 +29,11 @@ const routes = [
     path: '/events/month/:month',
     name: 'MonthEventComponent',
     component: MonthEventComponent,
+  },
+  {
+    path: '/events/search',
+    name: 'SearchEventComponent',
+    component: SearchEventComponent,
   },
   {
     path: '/home',
@@ -74,11 +79,6 @@ const routes = [
     path: '/mylist',
     name: 'mylist',
     component: Mylist,
-  },
-  {
-    path: '/search-results',
-    name: 'search-results',
-    component: SearchResults,
   },
   // {
   //   path: '/event/this_month',

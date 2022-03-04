@@ -11,7 +11,7 @@ class EventController extends Controller
     public function index() {
         // $events=Event::all();
         // Eventモデルから全部のデータを取得する
-        $events = Event::with('courseLocation')->get();
+        $events = Event::with('courseLocation')->orderBy('date','asc')->get();
         return response()->json(compact('events'),200); //eventsという名前でデータを返す
         // dd($courseid);
 

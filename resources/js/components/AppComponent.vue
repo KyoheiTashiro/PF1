@@ -5,6 +5,8 @@
     <router-view :key="$route.fullPath"></router-view>
     <FooterAuth />
   </div>
+  
+<!-- @send-keyword="searchKeyword" -->
 </template>
 
 <script>

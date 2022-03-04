@@ -1,6 +1,7 @@
 <template>
   <div>
-    <p class="p-6 text-2xl">{{ this.$route.params.course_name }} イベント一覧</p>
+    <!-- <p class="p-6 text-2xl">{{ this.$route.params.course_name }} イベント一覧</p> -->
+    <p v-if="events[0]" class="p-6 text-2xl">{{ events[0].course_location.name }} 開催イベント一覧</p>
     <EventLists :events="events" />
   </div>
 </template>
@@ -17,11 +18,6 @@ export default {
   },
   created() {
     this.test();
-  },
-  beforeRouteUpdate(to, from, next) {
-    // `this` を使用
-    this.name = to.params.name;
-    next();
   },
   methods: {
     test: function() {
