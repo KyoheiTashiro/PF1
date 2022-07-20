@@ -1,21 +1,25 @@
 <template>
   <div>
-    <HeaderAuth />
-    <!-- //pagesに作って、router.jsで読み込んだファイルはrouter-viewの範囲で表示が切り替わる -->
     <router-view :key="$route.fullPath"></router-view>
-    <FooterAuth />
   </div>
-  
-<!-- @send-keyword="searchKeyword" -->
 </template>
+<!-- //pagesに作って、router.jsで読み込んだファイルはrouter-viewの範囲で表示が切り替わる -->
 
 <script>
-import HeaderAuth from '@/component/HeaderAuth';
-import FooterAuth from '@/component/FooterAuth';
+import { mapMutations } from 'vuex';
 export default {
-  components: {
-    HeaderAuth,
-    FooterAuth,
+  props: {
+    auth: String,
+  },
+  created() {
+    if (this.auth) {
+      this.stateLogin();
+      this.stateLoginId(this.auth);
+    }
+  },
+  methods: {
+    ...mapMutations('util', ['stateLogin']),
+    ...mapMutations('util', ['stateLoginId']),
   },
 };
 </script>

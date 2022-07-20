@@ -6,11 +6,22 @@
 
 require('./bootstrap');
 
-// window.Vue = require("vue");
-import Vue from 'vue';
-import router from "./router";
-import vuetify from "./vuetify";
-import store from "./store/index";
+window.Vue = require('vue').default;
+
+import router from './router';
+import vuetify from './vuetify';
+import store from './store/index';
+
+import SocialSharing from 'vue-social-sharing';
+Vue.use(SocialSharing);
+
+// import library from '@fortawesome/fontawesome-svg-core';
+// import faCoffee from '@fortawesome/free-solid-svg-icons';
+// import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
+
+// library.add(faCoffee);
+
+// Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 /**
  * The following block of code may be used to automatically register your
@@ -23,7 +34,10 @@ import store from "./store/index";
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Vue.component('AppComponent', require('./components/AppComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('app-component', require('./components/AppComponent.vue').default);
+Vue.component('header-auth', require('./components/component/HeaderAuth.vue').default);
+Vue.component('footer-auth', require('./components/component/FooterAuth.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,15 +45,10 @@ import store from "./store/index";
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import AppComponent from "./components/AppComponent.vue";
-
-
 const app = new Vue({
-    el: "#app",
-    router,
-    vuetify,
-    store,
-    components: {
-        "app-component": AppComponent
-    }
+  el: '#app',
+  router,
+  vuetify,
+  store,
+  //↑vue routerとvuetify使用するために追加
 });

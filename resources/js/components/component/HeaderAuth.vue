@@ -1,37 +1,136 @@
 <template>
-  <div class="header flex">
-    <div class="left">
-      <p class="title">Circuit Junction</p>
-      <div class="search-category flex">
-        <p @click="$router.push('/home')">HOME</p>
-        <div @click.stop="showSchedule">
-          <p>日程から探す</p>
-          <div v-if="isOpenSchedule" class="absolute bg-gray-300">
-            <p @click="$router.push('/events/month/' + ThisMonth)">今月</p>
-            <p @click="$router.push('/events/month/' + NextMonth)">来月</p>
-            <p @click="$router.push('/events')">すべて</p>
-          </div>
-        </div>
-        <div @click.stop="showCourse">
-          <p>コースから探す</p>
-          <div v-if="isOpenCourse" class="absolute bg-gray-300">
-            <p @click="$router.push('/events/course/fsw')">富士スピードウェイ</p>
-            <p @click="$router.push('/events/course/tsukuba')">筑波サーキット</p>
-            <p @click="$router.push('/events/course/motegi')">ツインリンクもてぎ</p>
-            <p @click="$router.push('/events/course/mihama')">美浜サーキット</p>
-          </div>
-        </div>
-        <input placeholder="キーワード" type="text" v-model="search_keyword" />
-        <button
-          @click="$router.push({ path: '/events/search', query: { keyword: search_keyword } })"
+  <div class="xl:flex px-4 xl:py-3 items-center text-center">
+    <div @click.stop="showSchedule" class="w-full xl:w-32 mx-auto text-lg text-center z-50">
+      <p
+        class="text-center mx-auto hover:text-blue-500 cursor-pointer border-b-2 border-black xl:border-white"
+      >
+        日程から探す
+      </p>
+      <div v-if="isOpenSchedule" class="xl:w-36  w-44 absolute bg-blue-200  border rounded-md z-50">
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/month/' + ThisMonth)"
         >
-          検索
-        </button>
+          今月のイベント
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/month/' + NextMonth)"
+        >
+          来月のイベント
+        </p>
+        <p class="py-2 hover:bg-blue-400 cursor-pointer" @click="$router.push('/events')">
+          すべてのイベント
+        </p>
       </div>
     </div>
-    <div class="right flex">
-      <p @click="$router.push('/signup')">新規登録</p>
-      <p @click="$router.push('/login')">ログイン</p>
+    <div @click.stop="showCourse" class="w-full xl:w-36 mx-auto xl:mx-1 text-lg text-center  z-50">
+      <p class="hover:text-blue-500 cursor-pointer border-b-2 border-black xl:border-white">
+        コースから探す
+      </p>
+      <div
+        v-if="isOpenCourse"
+        class="xl:w-36  w-44 mx-0 absolute bg-blue-200 border rounded-md z-50 text-center"
+      >
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/fsw')"
+        >
+          富士
+        </p>
+        <p
+          class="py-2 hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/tsukuba')"
+        >
+          筑波
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/motegi')"
+        >
+          もてぎ
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/mihama')"
+        >
+          美浜
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/sodegaura')"
+        >
+          袖ヶ浦
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/nikko')"
+        >
+          日光
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/suzuka')"
+        >
+          鈴鹿 フル
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/suzuka_south')"
+        >
+          鈴鹿 南
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/okayama')"
+        >
+          岡山
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/takata')"
+        >
+          タカタ
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/autopolis')"
+        >
+          オートポリス
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer border-b-2 border-gray-400 xl:border-blue-200"
+          @click="$router.push('/events/course/sugo')"
+        >
+          SUGO
+        </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer"
+          @click="$router.push('/events/course/houdaigi')"
+        >
+          宝台樹スキー場
+        </p>
+      </div>
+    </div>
+    <div class=" xl:px-4 border-b-2 border-black xl:border-white">
+      <input
+        class="w-full text-lg xl:w-48 my-2 xl:pl-2 border-solid border-2 border-black rounded-lg"
+        placeholder="キーワードで調べよう！"
+        type="text"
+        v-model="search_keyword"
+      />
+      <button
+        class="block mx-auto w-2/5 xl:w-auto xl:inline text-lg xl:mx-2 mb-2 xl:px-4 font-semibold border-solid border-2 hover:text-white hover:bg-blue-400  border-black rounded-lg"
+        @click="$router.push({ path: '/events/search', query: { keyword: search_keyword } })"
+      >
+        検索
+      </button>
+    </div>
+    <div
+      v-if="$store.state.util.login"
+      class="mx-auto xl:px-4 text-lg hover:text-blue-500 border-b-2 border-black xl:border-white cursor-pointer inset-x-0 right-0"
+    >
+      <p @click="$router.push('/mylist')">マイリスト</p>
     </div>
   </div>
 </template>
@@ -56,9 +155,15 @@ export default {
   methods: {
     showSchedule: function() {
       this.isOpenSchedule = !this.isOpenSchedule;
+      if (this.isOpenCourse) {
+        this.isOpenCourse = false;
+      }
     },
     showCourse: function() {
       this.isOpenCourse = !this.isOpenCourse;
+      if (this.isOpenSchedule) {
+        this.isOpenSchedule = false;
+      }
     },
     //bodyをクリックしたら関数を動かしますという定義
     initClickEvent: function() {
@@ -82,54 +187,8 @@ export default {
         this.isOpenCourse = false;
       }
     },
-    // SendKeyword() {
-    //   this.$emit('send-keyword', this.keyword);
-    //   this.keyword = '';
-    // },
   },
 };
 </script>
 
-<style scoped>
-.right {
-  align-items: center;
-}
-.right p {
-  margin-right: 20px;
-  cursor: pointer;
-}
-.left {
-  display: flex;
-}
-.title {
-  font-size: 30px;
-  font-weight: bold;
-}
-.search-category {
-  align-items: center;
-}
-.search-category p {
-  margin-left: 30px;
-  cursor: pointer;
-}
-.search-category input {
-  margin-left: 30px;
-  width: 130px;
-  border: solid 1px black;
-  border-radius: 4px;
-   align-items: center;
-}
-.search-category button {
-  cursor: pointer;
-  margin-left: 3px;
-  padding-right: 15px;
-  padding-left: 15px;
-   align-items: center;
-}
-.header {
-  margin: 20px;
-}
-.flex {
-  display: flex;
-}
-</style>
+<style scoped></style>

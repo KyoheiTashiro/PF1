@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="p-6 text-2xl">イベント キーワード検索結果 一覧</p>
+    <p class="p-6 xl:text-2xl flex justify-center">イベント キーワード検索結果 一覧</p>
     <EventLists :events="events" />
   </div>
 </template>
@@ -12,22 +12,22 @@ export default {
   components: { EventLists },
   data() {
     return {
-      events: [], //MonthEventControllerから帰ってきたeventsという名前のデータ
+      events: [], 
     };
   },
   created() {
-    this.test();
+    this.getEvent();
   },
   methods: {
-    test: function() {
+    getEvent: function() {
       const query = window.location.search;
       console.log(query);
       axios
-        // .get('/api/event/search?keyword=' + this.$route.query.keyword) //ヘッダーinputタグの検索キーワード(クエリ)をパラメータにしてAPIを叩く
+       
         .get('/api/event/search' + query) //ヘッダーinputタグの検索キーワード(クエリ)をパラメータにしてAPIを叩く
         .then(res => {
           console.log(res);
-          this.events = res.data.events; //SearchEventControllerから帰ってきたeventsという名前のデータ
+          this.events = res.data.events; 
         })
         .catch(err => {
           console.log(err);

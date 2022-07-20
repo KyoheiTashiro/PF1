@@ -22,6 +22,7 @@
 						$table->string('session_time')->nullable();
 						$table->integer('course_id')->nullable()->unsigned();
                         $table->string('source_url')->nullable();
+                        $table->string('organizer')->nullable();
                         $table->timestamps();
                         $table->softDeletes();
 						

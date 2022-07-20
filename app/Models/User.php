@@ -40,4 +40,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function mylists()
+    {
+        return $this->belongsToMany(Event::class, 'mylists', 'user_id','event_id')->withTimestamps();
+    }
+
+    public function isMylist($event_id)
+    {
+        return $this->mylists()->where('event_id','=',$event_id)->exists();
+    }
+
+    public function mylist($event_id)
+    {
+        if($this->isMylist($event_id)){
+            // 有るならなにもしない
+        }else{
+            $this->mylists()->attach($event_id);
+            //マイリスト無いなら保存する
+        }
+    }
+
+    public function noMylist($event_id)
+    {
+        if($this->isMylist($event_id)){
+            $this->mylists()->detach($event_id);
+        }else{
+        }
+    }
 }

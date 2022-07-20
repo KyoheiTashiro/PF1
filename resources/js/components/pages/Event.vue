@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="p-6 text-2xl">全てのイベント</p>
+    <p class="p-6 xl:text-2xl flex justify-center">現在公開中の全てのイベント</p>
     <EventLists :events="events" />
   </div>
 </template>
@@ -12,20 +12,19 @@ export default {
   components: { EventLists },
   data() {
     return {
-      events: [], //EventControllerから帰ってきたeventsという名前のデータ
+      events: [], 
     };
   },
   created() {
-    this.test();
+    this.getEvent();
   },
   methods: {
-    test: function() {
+    getEvent: function() {
       axios
         .get('api/event')
         .then(res => {
-          //ajax/eventというURLでgetする
           console.log(res);
-          this.events = res.data.events; //EventControllerから帰ってきたeventsという名前のデータ
+          this.events = res.data.events; 
         })
         .catch(err => {
           console.log(err);

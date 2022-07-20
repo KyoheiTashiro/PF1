@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     // use HasFactory;
-    public function courseLocation()
+    public function course()
     {
        return $this->belongsTo('App\Models\Course','course_id');
+    }
+    //関数：eventsテーブルからcourseテーブルのcourse_idカラムにリレーションする
+    
+    public function mylists()
+    {
+        return $this->belongsToMany(User::class, 'mylists', 'event_id', 'user_id');
     }
 }

@@ -1,7 +1,8 @@
 <template>
   <div>
-    <!-- <p class="p-6 text-2xl">{{ this.$route.params.month }}月 イベント一覧</p> -->
-    <p class="p-6 text-2xl">{{ moment(this.$route.params.month,'YYYY年M月') }} 開催のイベント一覧</p>
+    <p class="p-6 xl:text-2xl flex justify-center">
+      {{ moment(this.$route.params.month, 'YYYY年M月') }} 開催のイベント一覧
+    </p>
     <EventLists :events="events" />
   </div>
 </template>
@@ -13,19 +14,19 @@ export default {
   components: { EventLists },
   data() {
     return {
-      events: [], //MonthEventControllerから帰ってきたeventsという名前のデータ
+      events: [], 
     };
   },
   created() {
-    this.test();
+    this.getEvent();
   },
   methods: {
-    test: function() {
+    getEvent: function() {
       axios
-        .get('/api/event/month/' + this.$route.params.month) 
+        .get('/api/event/month/' + this.$route.params.month)
         .then(res => {
           console.log(res);
-          this.events = res.data.events; //MonthEventControllerから帰ってきたeventsという名前のデータ
+          this.events = res.data.events;
         })
         .catch(err => {
           console.log(err);

@@ -1,19 +1,19 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
+@section('content')
 
-        <title>Circuit Junction</title>
-        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+<div id="app">
+    <v-app>
+        <app-component auth='{{Auth::id()}}'></app-component>
+    </v-app>
+</div>
+@endsection
 
+{{-- このbladeは下記のパス以外を表示で使用 --}}
 
-    </head>
-    <body>
-        <v-app id="app">
-            <app-component />
-        </v-app>
-    </body>
-    <script src="{{mix('js/app.js')}}"></script>
-</html>
+{{-- 下記のパス、bladeはlayouts.app2で@yieldする --}}
+{{-- (ヘッダーのVueRouterが仕様上、動かないため) --}}
+
+{{-- /login --}}
+{{-- /register --}}
+{{-- /login-success --}}

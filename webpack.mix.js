@@ -1,6 +1,6 @@
-const path = require('path');
-
 const mix = require('laravel-mix');
+const tailwindcss = require('tailwindcss');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,18 +13,14 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .vue({ version: 2 })
-    .sass('resources/sass/app.scss', 'public/css')
-    .postCss("resources/css/app.css", "public/css", [
-     require("tailwindcss"),
-    ]);
-
-
-mix.webpackConfig({
-  resolve: {
-    alias: {
-      '@': path.resolve('./resources/js/components')
-    }
-  }
-});
+mix
+  .js('resources/js/app.js', 'public/js')
+  // .vue()
+  .vue({ version: 2 })
+  .sass('resources/sass/app.scss', 'public/css')
+  .postCss('resources/css/app.css', 'public/css', [require('tailwindcss')])
+  .options({
+    processCssUrls: false,
+    postCss: [tailwindcss('./tailwind.config.js')],
+  })
+  .purgeCss();
