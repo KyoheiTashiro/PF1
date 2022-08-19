@@ -2,7 +2,7 @@ const getters = {};
 
 const state = {
   login: false,
-  LoginId: '',
+  // LoginId: '',
 };
 
 const mutations = {
@@ -10,10 +10,10 @@ const mutations = {
     state.login = true;
     // console.log('stateLogin ok');
   },
-  stateLoginId(state,loginid) {
-    // console.log('stateLoginId ok');
-    state.LoginId = loginid;
-  },
+  // stateLoginId(state,loginid) {
+  //   // console.log('stateLoginId ok');
+  //   state.LoginId = loginid;
+  // },
 };
 
 const actions = {};
