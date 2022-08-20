@@ -9,7 +9,7 @@ use Auth;
 
 class DeleteMylistEventController extends Controller
 {
-    public function deleteMylist(Request $request){
+    public function delete(Request $request){
         Auth::user()->noMylist($request->event);
         return 'マイリスト削除ok!';
     }

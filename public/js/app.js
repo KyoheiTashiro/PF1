@@ -5063,7 +5063,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   created: function created() {
     if (this.auth) {
-      this.stateLogin(); // this.stateLoginId(this.auth);
+      this.stateLogin();
     }
   },
   methods: _objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_0__.mapMutations)('util', ['stateLogin']))
@@ -6201,17 +6201,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var getters = {};
 var state = {
-  login: false // LoginId: '',
-
+  login: false
 };
 var mutations = {
   stateLogin: function stateLogin(state) {
-    state.login = true; // console.log('stateLogin ok');
-  } // stateLoginId(state,loginid) {
-  //   // console.log('stateLoginId ok');
-  //   state.LoginId = loginid;
-  // },
-
+    state.login = true;
+  }
 };
 var actions = {};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -52077,7 +52072,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "xl:w-1/2" }, [
-          _c("img", { attrs: { src: "/images/IMG_1476.JPG" } })
+          _c("img", { attrs: { src: "/images/IMG_1477.JPG" } })
         ])
       ]),
       _vm._v(" "),

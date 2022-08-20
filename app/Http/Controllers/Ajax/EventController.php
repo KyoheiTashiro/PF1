@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class EventController extends Controller
 {
-    public function event() {
+    public function index() {
         $userId = Auth::id();
         $events = Event::with('course')
         ->withCount(['mylists' => function ($query) use ($userId) {

@@ -22,7 +22,7 @@ class LoginSuccessController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function loginSuccess()
+    public function index()
     {
         
         //ログイン認証されたらlogin_success.bladeを表示

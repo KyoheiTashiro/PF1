@@ -6,7 +6,7 @@
           <img src="/images/267238163_org.jpg" />
         </div>
         <div class="xl:w-1/2">
-          <img src="/images/IMG_1476.JPG" />
+          <img src="/images/IMG_1477.JPG" />
         </div>
       </div>
       <div class="absolute z-40 items-center w-full h-full flex flex-wrap">

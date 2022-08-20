@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
        
-        $schedule->command('command:scraping')->everyMinute();
-        // \Log::info('スケジューラ動いてる');
+        $schedule->command('command:scraping')->daily();
+        \Log::info('スケジューラ:スクレイピング実行');
     }
 
     /**

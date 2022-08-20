@@ -11,7 +11,7 @@ use Carbon\Carbon;
 
 class MonthEventController extends Controller
 {
-    public function month($year_month){
+    public function index($year_month){
         $userId = Auth::id();
         $events = Event::with('course')
         ->where('date','>=',$year_month.'-01')

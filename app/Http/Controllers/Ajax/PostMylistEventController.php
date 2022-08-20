@@ -10,7 +10,7 @@ use Auth;
 
 class PostMylistEventController extends Controller
 {
-    public function postMylist(Request $request){
+    public function post(Request $request){
         Auth::user()->mylist($request->event);
         return 'マイリスト追加ok!';
     }

@@ -14,12 +14,10 @@ export default {
   created() {
     if (this.auth) {
       this.stateLogin();
-      // this.stateLoginId(this.auth);
     }
   },
   methods: {
     ...mapMutations('util', ['stateLogin']),
-    // ...mapMutations('util', ['stateLoginId']),
   },
 };
 </script>
