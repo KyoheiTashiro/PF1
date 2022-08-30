@@ -9,15 +9,12 @@ use App\Models\Event;
 use Auth;
 use Carbon\Carbon;
 
-//★★★途中★★★
-
 class MylistController extends Controller
 {
     public function store(Request $request){
         Auth::user()->mylist($request->event);
         return 'マイリスト追加ok!';
     }
-    //mylistsテーブルにevent_idとuser_idを保存する
 
     public function destroy(Request $request){
         Auth::user()->noMylist($request->event);

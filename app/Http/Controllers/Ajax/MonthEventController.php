@@ -11,11 +11,11 @@ use Carbon\Carbon;
 
 class MonthEventController extends Controller
 {
-    public function index($year_month){
+    public function show($yearMonth){
         $userId = Auth::id();
         $events = Event::with('course')
-        ->where('date','>=',$year_month.'-01')
-        ->where('date','<=',$year_month.'-31')
+        ->where('date','>=',$yearMonth.'-01')
+        ->where('date','<=',$yearMonth.'-31')
         ->withCount(['mylists' => function ($query) use ($userId) {
             $query->where('user_id', $userId);
         }])

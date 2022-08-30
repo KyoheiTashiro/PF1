@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class CourseController extends Controller
 {
-    public function index($courseName){
+    public function show($courseName){
          $userId = Auth::id();
          $events = Event::with('course')
          ->whereHas('course',function($query)use($courseName){

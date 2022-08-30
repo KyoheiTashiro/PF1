@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
        
         $schedule->command('command:scraping')->daily();
-        \Log::info('スケジューラ:スクレイピング実行');
+        
     }
 
     /**

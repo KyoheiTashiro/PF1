@@ -265,11 +265,8 @@ class Scraping extends Command
             });
         });
 
-
-
-       
+    \Log::info('スケジューラ:スクレイピング実行');   
     }
 }
-
 
 
