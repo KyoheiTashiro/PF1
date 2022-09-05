@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="flex items-start justify-between">
-                <a class="text-3xl font-bold pl-6 xl:pl-2 xl:my-auto hover:text-black" style="font-size:1.875rem" href="{{ url('/') }}">
+                <a class="text-3xl font-bold pl-6 xl:pl-2 xl:my-auto hover:text-black" style="font-size:1.875rem;line-height:2.25rem;" href="{{ url('/') }}">
                     {{--aタグ class="navbar-brand"  --}}
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     Circuit Junction
