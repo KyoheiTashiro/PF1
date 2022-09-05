@@ -32,7 +32,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="text-3xl font-bold hover:text-black" href="{{ url('/') }}">
+                <a class="text-3xl font-bold hover:text-black" style="font-size:1.875rem;line-height:2.25rem;" href="{{ url('/') }}">
                     Circuit Junction
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
