@@ -110,6 +110,12 @@
         >
           宝台樹スキー場
         </p>
+        <p
+          class="py-2  hover:bg-blue-400 cursor-pointer"
+          @click="$router.push('/events/course/mobara')"
+        >
+          茂原
+        </p>
       </div>
     </div>
     <div class=" xl:px-4 border-b-2 border-black xl:border-white">

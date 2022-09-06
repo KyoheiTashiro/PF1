@@ -5474,6 +5474,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
@@ -51576,6 +51582,19 @@ var render = function() {
                       }
                     },
                     [_vm._v("\n        宝台樹スキー場\n      ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "py-2  hover:bg-blue-400 cursor-pointer",
+                      on: {
+                        click: function($event) {
+                          return _vm.$router.push("/events/course/mobara")
+                        }
+                      }
+                    },
+                    [_vm._v("\n        茂原\n      ")]
                   )
                 ]
               )
