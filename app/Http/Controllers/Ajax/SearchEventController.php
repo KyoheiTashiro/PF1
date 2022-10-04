@@ -10,7 +10,7 @@ use Carbon\Carbon;
 
 class SearchEventController extends Controller
 {   
-    public function search(Request $request){
+    public function index(Request $request){
         $userId = Auth::id();
         $keyword = $request->input('keyword');
         $events=Event::with('course')
