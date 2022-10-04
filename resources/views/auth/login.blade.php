@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-blue-400">
+                <div class="card-header" style="background-color: #0B5ED7">
                     <div class="text-center text-lg text-white">ログイン</div>
                 </div>
                 <div class="card-body">
