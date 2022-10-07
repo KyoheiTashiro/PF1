@@ -26,7 +26,7 @@
 
 # 開発者
 
-KyoeheiTashiro<br>
+Kyohei Tashiro<br>
 email:rgz.aqua@gmail.com
 
 
