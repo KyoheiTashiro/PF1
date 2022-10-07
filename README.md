@@ -1,5 +1,9 @@
 <h4>Circuit Junction</h4>
+
 <p>全国各地で開催されているサーキット走行会の情報を、主催者webサイトをスクレイピングすることで取得し、まとめて閲覧・管理できるサービスです。</p>
+
+<p>主催者様ごとにwebサイトをいくつも渡り歩いて日程や内容を確認する、そんな手間を省きます</p>
+<p>あなたの走行会の情報チェックを容易に、そしてまだ見ぬ新しい走行会と出会えることでしょう</p>
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
