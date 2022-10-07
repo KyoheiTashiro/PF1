@@ -26,7 +26,7 @@
 
 # 作成者
 
-KyoeheiTashiro
+KyoeheiTashiro<br>
 email:rgz.aqua@gmail.com
 
 
