@@ -4,16 +4,17 @@
 
 # 概要
 
-全国各地で開催されているサーキット走行会の情報を、主催者webサイトをスクレイピングすることで取得しています。
-走行会情報を、日程・コース・キーワードで検索、ログインによるマイリスト管理ができます。
+全国各地で開催されているサーキット走行会の情報を、主催者webサイトをスクレイピングすることで取得しています。  走行会情報を、日程・コース・キーワードで検索、ログインによるマイリスト管理ができます。
 
-# デモ
+# 画面イメージ
 
-# 環境
+
+# 環境・パッケージ
 - Laravel：8.52.0
 - Vue.js：2.6.12
 - TailwindCSS：2.2.19
 - Goutte：2.1
+- MySQL：8.0.24
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
