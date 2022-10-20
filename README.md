@@ -12,7 +12,7 @@ Laravelのbladeの中でVue.jsを表示しています。
 
 # 画面イメージ
 - HOME画面
-![HOME画面](.home.jpg)
+![HOME画面](./home.jpg)
 
 - 開催月で検索
 ![開催月で検索](./search.jpg)
