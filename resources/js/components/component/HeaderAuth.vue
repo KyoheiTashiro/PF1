@@ -105,7 +105,7 @@
           SUGO
         </p>
         <p
-          class="py-2  hover:bg-blue-400 cursor-pointer"
+          class="py-2  hover:bg-blue-400 cursor-pointer xl:border-blue-200"
           @click="$router.push('/events/course/houdaigi')"
         >
           宝台樹スキー場
