@@ -13,13 +13,13 @@ Laravel の blade の中で Vue.js を表示しています。
 # 画面イメージ
 
 - HOME 画面
-  ![HOME画面](./home.jpg)
+  ![HOME画面](./public/images/home.jpg)
 
 - 開催月で検索
-  ![開催月で検索](./search.jpg)
+  ![開催月で検索](./public/images/search.jpg)
 
 - マイリスト画面
-  ![マイリスト画面](./mylist.jpg)
+  ![マイリスト画面](./public/images/mylist.jpg)
 
 # 環境・パッケージ
 
