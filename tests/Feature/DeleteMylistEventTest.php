@@ -14,11 +14,11 @@ class DeleteMylistEventTest extends TestCase
      *
      * @return void
      */
-    public function test__DeleteMylistEventContoller()
+    public function test__DeleteMylistEventController()
     {
         $user = User::find(2);
         $response = $this->actingAs($user)
-        ->postJson('api/event/delete-mylist',['event' => 279]);
+        ->postJson('api/event/delete-mylist',['event' => 311]);
 
         $response->assertStatus(200);
     }
