@@ -1,9 +1,15 @@
 version: 2.1
-jobs:
-  build:
-    docker:
-      - image: circleci/php:7.3-node-browsers
-    steps:
+# jobs:
+#   build:
+#     docker:
+#       - image: circleci/php:7.3-node-browsers
+ orbs:
+   win: circleci/windows@4.1.1 # The Windows orb gives you everything you need to start using the Windows executor
+
+ jobs:
+   build: # name of your job
+     executor: win/server-2022 # use one of the executors defined within the windows orb
+     steps:
       - checkout
       # - run: sudo composer self-update --1
       # - run: composer install -n --prefer-dist
