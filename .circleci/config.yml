@@ -1,12 +1,12 @@
 version: 2.1
+
 jobs:
-  build:
+  build: # name of your job
     machine:
       image: windows-default
     steps:
+      # Commands are run in a Windows virtual machine environment
       - checkout
-      # - run: sudo composer self-update --1
-      # - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm run dev
       - run:
