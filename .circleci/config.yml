@@ -1,10 +1,15 @@
 version: 2.1
-
 jobs:
-  build: # name of your job
-    machine:
-      image: windows-default
+  build:
+    docker:
+      - image: circleci/php:7.3-node-browsers
     steps:
-      # Commands are run in a Windows virtual machine environment
+      #==========ここから追加==========
       - checkout
-      - run: Write-Host 'Hello, Windows'
+      - run: sudo composer self-update --1
+      - run: composer install -n --prefer-dist
+      - run: npm ci
+      - run: npm run dev
+      - run:
+          name: php test
+          command: vendor/bin/phpunit
