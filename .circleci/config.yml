@@ -1,9 +1,10 @@
 version: 2.1
-
+orbs:
+  browser-tools: circleci/browser-tools@1.2.3
 jobs:
-  build: # name of your job
-    machine:
-      image: windows-default
+  build:
+    docker:
+      - image: cimg/php:8.1-browsers
     steps:
       - checkout
       # - run: sudo composer self-update --1
