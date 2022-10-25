@@ -1,9 +1,13 @@
 version: 2.1
 
+orbs:
+  win: circleci/windows@4.1.1
+
 jobs:
-  build: # name of your job
-    machine:
-      image: windows-default
+  build:
+    executor:
+      name: win/default
+      shell: powershell.exe
     steps:
       - checkout
       # - run: sudo composer self-update --1
