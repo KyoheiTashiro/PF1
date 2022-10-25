@@ -1,10 +1,11 @@
-version: 2.1
+version: 2.1 # Use version 2.1 to enable Orb usage.
+
 orbs:
-  browser-tools: circleci/browser-tools@1.2.3
+  win: circleci/windows@4.1.1 # Windows Orb には Windows Executor の使用に必要なすべてが揃っています
+
 jobs:
-  build:
-    docker:
-      - image: cimg/php:8.1-browsers
+  build: # name of your job
+    executor: win/default # executor type
     steps:
       - checkout
       # - run: sudo composer self-update --1
