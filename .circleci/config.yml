@@ -9,6 +9,7 @@ jobs:
       # - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm run dev
+      - run: composer install
       - run:
           name: php test
-          command: vendor/bin/phpunit tests/Feature/
+          command: vendor/bin/phpunit
