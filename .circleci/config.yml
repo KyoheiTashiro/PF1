@@ -1,11 +1,9 @@
-version: 2.1 # Use version 2.1 to enable Orb usage.
-
-orbs:
-  win: circleci/windows@4.1.1 # Windows Orb には Windows Executor の使用に必要なすべてが揃っています
+version: 2.1
 
 jobs:
   build: # name of your job
-    executor: win/default # executor type
+    machine:
+      image: windows-default
     steps:
       - checkout
       # - run: sudo composer self-update --1
