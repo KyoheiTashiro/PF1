@@ -3,8 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.4.16-node-browsers
-    environment:
-      - DB_CONNECTION: circleci
+      - image: cimg/mysql:<8.0.24>
+    # environment:
+    #   - DB_CONNECTION: circleci
     steps:
       - checkout
       # - run: sudo composer self-update --1
@@ -12,7 +13,7 @@ jobs:
       - run: npm ci
       - run: npm run dev
       - run: composer install
-      - run: touch database/database.mysql
+      # - run: touch database/database.mysql
       - run: php artisan migrate --env=testing
       - run:
           name: php test
