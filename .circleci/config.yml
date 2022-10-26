@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.4.16-node-browsers
-      - image: cimg/mysql:<8.0.24>
+      - image: cimg/mysql:8.0
     # environment:
     #   - DB_CONNECTION: circleci
     steps:
