@@ -10,6 +10,7 @@ jobs:
       - run: npm ci
       - run: npm run dev
       - run: composer install
+      - run: touch database/database.mysql
       - run: php artisan migrate --env=testing
       - run:
           name: php test
