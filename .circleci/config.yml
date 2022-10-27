@@ -22,7 +22,7 @@ jobs:
       - run: composer install
       # - run: touch database/
       # - run: php artisan migrate --env=testing
-      - run: php artisan migrate --env=testing --database=circleci --force
+      - run: php artisan migrate --env=testing --database=circle_test --force
       - run:
           name: php test
           command: vendor/bin/phpunit
