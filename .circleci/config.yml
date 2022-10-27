@@ -4,13 +4,13 @@ jobs:
     docker:
       - image: circleci/php:7.4.16-node-browsers
       # - image: cimg/mysql:8.0
-      - image: circleci/mysql:8.0.20-ram
-        command: mysqld --default-authentication-plugin=mysql_native_password
-        environment:
-          MYSQL_USER: forge
-          MYSQL_DATABASE: forge
-          MYSQL_ROOT_PASSWORD: ''
-          MYSQL_PASSWORD: 'forge'
+      # - image: circleci/mysql:8.0.20-ram
+      #   command: mysqld --default-authentication-plugin=mysql_native_password
+      #   environment:
+      #     MYSQL_USER: forge
+      #     MYSQL_DATABASE: forge
+      #     MYSQL_ROOT_PASSWORD: ''
+      #     MYSQL_PASSWORD: 'forge'
     # environment:
     #   - DB_CONNECTION: circleci
     steps:
