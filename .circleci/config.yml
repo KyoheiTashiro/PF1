@@ -26,8 +26,9 @@ jobs:
             sudo docker-php-ext-install zip bcmath pdo_mysql
       - run: composer install
       # - run: touch database/
-      # - run: php artisan migrate --env=testing
-      - run: php artisan migrate --env=testing --database=circleci --force
+      - run: php artisan migrate --env=testing
+      # - run: php artisan migrate --env=testing --database=circleci
+      # - run: php artisan migrate --env=testing --database=circleci --force
       - run:
           name: php test
           command: vendor/bin/phpunit
