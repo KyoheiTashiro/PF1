@@ -21,7 +21,8 @@ jobs:
       - run: npm run dev
       - run: composer install
       # - run: touch database/
-      - run: php artisan migrate --env=testing --database=mysql --force
+      # - run: php artisan migrate --env=testing
+      - run: php artisan migrate --env=testing --database=circleci --force
       - run:
           name: php test
           command: vendor/bin/phpunit
