@@ -19,10 +19,15 @@ jobs:
       # - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm run dev
+      - run:
+          name: Install MySQL driver
+          command: |
+            sudo docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
+            sudo docker-php-ext-install zip bcmath pdo_mysql
       - run: composer install
       # - run: touch database/
       # - run: php artisan migrate --env=testing
-      - run: php artisan migrate --env=testing --database=circle_test --force
+      - run: php artisan migrate --env=testing --database=circleci --force
       - run:
           name: php test
           command: vendor/bin/phpunit
