@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-
+    'fetch' => PDO::FETCH_CLASS,
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'circleci'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
