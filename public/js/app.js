@@ -51574,7 +51574,8 @@ var render = function() {
                   _c(
                     "p",
                     {
-                      staticClass: "py-2  hover:bg-blue-400 cursor-pointer",
+                      staticClass:
+                        "py-2  hover:bg-blue-400 cursor-pointer xl:border-blue-200",
                       on: {
                         click: function($event) {
                           return _vm.$router.push("/events/course/houdaigi")
