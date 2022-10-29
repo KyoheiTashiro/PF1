@@ -33,7 +33,15 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
-      - run: php artisan migrate --env=testing
+      - run:
+          name: 'Install sqlite'
+          command: sudo apt-get install php7.4-sqlite3
+      - run:
+          name: 'Create database and run migration'
+          command: |
+            touch database/database.sqlite
+            php artisan migrate --env=testing
+      # - run: php artisan migrate --env=testing
       # - run: php artisan migrate --env=testing --database=circleci
       # - run: php artisan migrate --env=testing --database=circleci --force
       - run:
