@@ -8,28 +8,28 @@ jobs:
       - DB_CONNECTION: circleci
     steps:
       - checkout
-      # - run: sudo composer self-update --1
-      # - run: composer install -n --prefer-dist
+      - run: sudo composer self-update --1
+      - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm run dev
-      - run:
-          name: Install MySQL driver
-          command: |
-            sudo docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
-            sudo docker-php-ext-install zip bcmath pdo_mysql
-      - run: composer install
+      # - run:
+      #     name: Install MySQL driver
+      #     command: |
+      #       sudo docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd
+      #       sudo docker-php-ext-install zip bcmath pdo_mysql
+      # - run: composer install
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
-      - run:
-          name: 'Install sqlite'
-          command: sudo apt-get install php7.4-sqlite3
-      - run:
-          name: 'Create database and run migration'
-          command: |
-            touch database/database.sqlite
-            php artisan migrate --env=testing
+      # - run:
+      #     name: 'Install sqlite'
+      #     command: sudo apt-get install php7.4-sqlite3
+      # - run:
+      #     name: 'Create database and run migration'
+      #     command: |
+      #       touch database/database.sqlite
+      #       php artisan migrate --env=testing
       - run:
           name: php test
           command: vendor/bin/phpunit
