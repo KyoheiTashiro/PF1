@@ -18,7 +18,7 @@ class DeleteMylistEventTest extends TestCase
     {
         $user = User::find(2);
         $response = $this->actingAs($user)
-        ->postJson('api/event/delete-mylist',['event' => 311]);
+        ->postJson('api/event/delete-mylist',['event' => 282]);
 
         $response->assertStatus(200);
     }
