@@ -21,7 +21,7 @@ class PostMylistEventTest extends TestCase
         
 
         $response = $this->actingAs($user)
-        ->postJson('api/event/post-mylist',['event' => 51]);
+        ->postJson('api/event/post-mylist',['event' => 310]);
         
         $response->assertStatus(200);
         

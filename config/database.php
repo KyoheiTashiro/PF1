@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-
+    'fetch' => PDO::FETCH_CLASS,
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -90,7 +90,26 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
+        'circleci' => [
+            'driver' => 'mysql',
+            'host' => '127.0.0.1',
+            'port' => '3306',
+            'database' => 'circle_test',
+            'username' => 'root',
+            'password' => '',
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+        'sqlite_testing' => [
+            'driver' => 'sqlite',
+            'url' => env('DATABASE_URL'),
+            'database' => env('DB_DATABASE', storage_path('testing.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
     ],
 
     /*
