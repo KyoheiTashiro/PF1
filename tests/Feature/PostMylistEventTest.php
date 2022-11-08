@@ -16,10 +16,10 @@ class PostMylistEventTest extends TestCase
      */
     public function test__PostMylistEventContoller()
     {
-      
+        
         $user = User::find(2);
         
-
+        
         $response = $this->actingAs($user)
         ->postJson('api/event/post-mylist',['event' => 282]);
         

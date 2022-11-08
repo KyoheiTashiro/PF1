@@ -30,18 +30,18 @@ jobs:
           paths:
             - node_modules
       - run: npm run dev
-      - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor
+      # - save_cache:
+      #     key: v1-dependencies-{{ checksum "composer.json" }}
+      #     paths:
+      #       - ./vendor
       - run:
           name: 'Create database and run migration'
           command: |
             touch storage/testing.sqlite
-            php artisan migrate --env=testing --database=sqlite_testing --force
-      # - run:
-      #     name: php test
-      #     command: ./vendor/bin/phpunit
+            php artisan migrate --env=testing --database=sqlite_testing --force --seed
+      - run:
+          name: php test
+          command: ./vendor/bin/phpunit
   #デプロイ
   deploy:
     docker:
