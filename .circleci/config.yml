@@ -47,7 +47,7 @@ jobs:
           name: deploy
           command: |
             ssh  -o StrictHostKeyChecking=no -t ${USER_NAME}@${HOST_NAME} "cd /var/www/html/PF1 && \
-              git pull"
+              git pull origin master"
 
               # git stash save && \
               # git stash pop && \
