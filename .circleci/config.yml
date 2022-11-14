@@ -3,7 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.4.16-node-browsers
-      # - image: cimg/php:7.4.14-browsers
     environment:
       - DB_CONNECTION: circleci
     steps:
@@ -30,10 +29,6 @@ jobs:
           paths:
             - node_modules
       - run: npm run dev
-      # - save_cache:
-      #     key: v1-dependencies-{{ checksum "composer.json" }}
-      #     paths:
-      #       - ./vendor
       - run:
           name: 'Create database and run migration'
           command: |
@@ -51,13 +46,17 @@ jobs:
       - run:
           name: deploy
           command: |
-            ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd laravel-ci && \
+            ssh ${USER_NAME}@${HOST_NAME} "cd /var/www/html/PF1 && \
               git pull origin master && \
               composer install -n --no-dev --prefer-dist && \
               npm ci && \
               npm run prod && \
-              php artisan migrate --force && \
               php artisan config:cache"
+              
+              # ssh -i "kftrzeal.pem" ec2-user@54.238.195.5
+              # cd /var/www/html/PF1
+              # ssh $SSH_USER@$SSH_HOST "<remote deploy command>"
+              # run: ssh ${USER_NAME}@${HOST_NAME} 'cd [あなたのプロジェクトへのパス] && git pull'
 workflows:
   version: 2
   build_deploy:
