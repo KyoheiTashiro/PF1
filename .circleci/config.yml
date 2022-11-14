@@ -49,10 +49,10 @@ jobs:
             ssh  -o StrictHostKeyChecking=no -t ${USER_NAME}@${HOST_NAME} "cd /var/www/html/PF1 && \
               git stash save && \
               git pull && \
-              composer install -n --no-dev --prefer-dist && \
-              npm ci && \
-              npm run prod && \
-              php artisan config:cache"
+              # composer install -n --no-dev --prefer-dist && \
+              # npm ci && \
+              # npm run prod && \
+              # php artisan config:cache"
               
               # ssh -i "kftrzeal.pem" ec2-user@54.238.195.5
               # cd /var/www/html/PF1
