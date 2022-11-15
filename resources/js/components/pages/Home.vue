@@ -14,7 +14,7 @@
           class="items-center text-center text-xs xl:text-xl w-4/5 xl:w-3/5 py-4 mx-auto text-white bg-gray-600 bg-opacity-75  font-semibold  rounded-lg"
         >
           <p class="text-sm font-bold  xl:text-4xl  px-1 py-2">
-            ここはサーキット走行会の情報ジャンクション！
+            ここはサーキット走行会の情報ジャンクション
           </p>
           <p class="w-4/5 xl:w-full mx-auto xl:mx-auto">
             主催者様ごとにwebサイトをいくつも渡り歩いて日程や内容を確認する、そんな手間を省きます
