@@ -125,12 +125,14 @@
         type="text"
         v-model="search_keyword"
       />
+        <!-- @change="keyword" -->
       <button
         class="block mx-auto w-2/5 xl:w-auto xl:inline text-lg xl:mx-2 mb-2 xl:px-4 font-semibold border-solid border-2 hover:text-white hover:bg-blue-400  border-black rounded-lg"
         @click="$router.push({ path: '/events/search', query: { keyword: search_keyword } })"
       >
         検索
       </button>
+        <!-- v-if="inputKeyword" -->
     </div>
     <div
       v-if="$store.state.util.login"
@@ -153,12 +155,23 @@ export default {
       isOpenSchedule: false,
       isOpenCourse: false,
       search_keyword: '',
+      // inputKeyword:[],
     };
   },
   mounted() {
     this.initClickEvent();
   },
+  // computed:{
+  //   inputIsNotNull(){
+  //     if(this.search_keyword =! null)
+  //       this.inputIsNotNull =true;
+  //   },
+  // },
   methods: {
+    // keyword: function() {
+    //   console.log('変更されました');
+    //   inputKeyword = true;
+    // },
     showSchedule: function() {
       this.isOpenSchedule = !this.isOpenSchedule;
       if (this.isOpenCourse) {

@@ -19,7 +19,8 @@ class LatestEventController extends Controller
         ->where('date','>=',Carbon::today())
         ->orderBy('date','asc')
         ->take(5)
-        ->get();
+        // ->get();
+        ->paginate(5);
         return response()->json(compact('events'),200); 
 
         //eventsテーブルから最新5件のデータ取得
