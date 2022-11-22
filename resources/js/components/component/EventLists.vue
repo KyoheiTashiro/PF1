@@ -1,5 +1,6 @@
 <template>
   <div class="flex justify-center">
+    <!-- <p>{{ events }}</p> -->
     <p v-if="events == 0" class="px-4 text-lg  xl:block hidden">
       該当するイベントは見つかりませんでした
     </p>
@@ -21,7 +22,7 @@
       </thead>
       <tbody class="xl:border-white border-t-2 border-blue-700">
         <tr
-          v-for="event in events"
+          v-for="event in events.data"
           :key="event.id"
           class="border-b-2 border-blue-700 xl:border-white mx-2 py-2"
         >
@@ -92,6 +93,7 @@
         </tr>
       </tbody>
     </table>
+    <!-- <p>{{events.links()}}</p> -->
   </div>
 </template>
 
@@ -100,11 +102,12 @@ import MylistCheckboxComponent from '../elements/MylistCheckboxComponent.vue';
 
 import moment from 'moment';
 export default {
+  props: {
+    // events: Array,
+    events: Object,
+  },
   components: {
     MylistCheckboxComponent,
-  },
-  props: {
-    events: Array,
   },
   data: function() {
     return {};
@@ -114,7 +117,31 @@ export default {
       return moment(date).format(format);
     },
   },
+  // computed: {
+  //   frontPageRange() {
+  //     return this.calRange(1, 2);
+  //   },
+  //   middlePageRange() {
+  //     let start = '';
+  //     let end = '';
+  //     if (this.current_page <= this.range) {
+  //       start = 3;
+  //       end = this.range + 2;
+  //     } else if (this.current_page > this.last_page - this.range) {
+  //       start = this.last_page - this.range - 1;
+  //       end = this.last_page - 2;
+  //     } else {
+  //       start = this.current_page - Math.floor(this.range / 2);
+  //       end = this.current_page + Math.floor(this.range / 2);
+  //     }
+  //     return this.calRange(start, end);
+  //   },
+  //   endPageRange() {
+  //     return this.calRange(this.last_page - 1, this.last_page);
+  //   },
+  // },
 };
 </script>
 
 <style scoped></style>
+

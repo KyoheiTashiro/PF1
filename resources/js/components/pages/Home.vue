@@ -76,7 +76,8 @@ export default {
   components: { EventLists },
   data() {
     return {
-      events: [], 
+      // events: [], 
+      events: {}, 
     };
   },
   created() {

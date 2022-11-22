@@ -21,7 +21,8 @@ class CourseController extends Controller
         }])
         ->where('date','>=',Carbon::today())
         ->orderBy('date','asc')
-        ->get();
+        // ->get();
+        ->paginate(5);
         return response()->json(compact('events'),200); 
     }
 }

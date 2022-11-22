@@ -32,7 +32,8 @@ class MylistController extends Controller
         }])
         ->where('date','>=',Carbon::yesterday())
         ->orderBy('date','asc')
-        ->get();
+        // ->get();
+        ->paginate(5);
         return response()->json(compact('events'),200); ;
     }
 }
