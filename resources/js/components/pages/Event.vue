@@ -44,37 +44,6 @@
         »
       </li>
     </ul>
-    <!-- <ul class="pagination">
-      <li
-        v-for="page in frontPageRange"
-        :key="page"
-        @click="changePage(page)"
-        :class="isCurrent(page) ? 'active' : 'inactive'"
-      >
-        {{ page }}
-      </li>
-      <li
-        v-for="page in middlePageRange"
-        :key="page"
-        @click="changePage(page)"
-        :class="isCurrent(page) ? 'active' : 'inactive'"
-      >
-        {{ page }}
-      </li>
-      <li
-        v-for="page in endPageRange"
-        :key="page"
-        @click="changePage(page)"
-        :class="isCurrent(page) ? 'active' : 'inactive'"
-      >
-        {{ page }}
-      </li>
-    </ul> -->
-
-    <!-- {{events}} -->
-    <!-- {{ frontPageRange }}
-    {{ middlePageRange }}
-    {{ endPageRange }} -->
   </div>
 </template>
 
@@ -85,9 +54,7 @@ export default {
   components: { EventLists },
   data() {
     return {
-      // events: [],
       events: {},
-      // users: [],
       current_page: 1,
       last_page: '',
       range: 5,
@@ -102,7 +69,6 @@ export default {
     getEvent: function() {
       axios
         .get(`api/event?page=${this.current_page}`)
-        // .get('api/event/'+this.page)
         .then(res => {
           console.log(res);
           this.events = res.data.events;
@@ -125,7 +91,6 @@ export default {
       if (page > 0 && page <= this.last_page) {
         this.current_page = page;
         this.getEvent();
-        console.log('a');
       }
     },
     isCurrent(page) {
@@ -167,21 +132,6 @@ export default {
       return this.calRange(start, end);
     },
 
-    // middlePageRange() {
-    //   let start = '';
-    //   let end = '';
-    //   if (this.current_page <= this.range) {
-    //     start = 3;
-    //     end = this.range + 2;
-    //   } else if (this.current_page > this.last_page - this.range) {
-    //     start = this.last_page - this.range - 1;
-    //     end = this.last_page - 2;
-    //   } else {
-    //     start = this.current_page - Math.floor(this.range / 2);
-    //     end = this.current_page + Math.floor(this.range / 2);
-    //   }
-    //   return this.calRange(start, end);
-    // },
     endPageRange() {
       if (!this.sizeCheck) return [];
       return this.calRange(this.last_page - 1, this.last_page);
