@@ -44,6 +44,10 @@
         »
       </li>
     </ul>
+    <div>
+      <!-- <p>当日の天気予報</p> -->
+      <!-- <p>{{ events.date }}{{ events.data.course.lacation }}:{{}}</p> -->
+    </div>
   </div>
 </template>
 
@@ -64,6 +68,7 @@ export default {
   },
   created() {
     this.getEvent();
+    // this.getWeather();
   },
   methods: {
     getEvent: function() {
@@ -79,6 +84,11 @@ export default {
           console.log(err);
         });
     },
+    // getWeather: function() {
+    //   axios.get(
+    //     `https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={72d4af4786b4d41d82acce49ea161b24}`
+    //   );
+    // },
 
     calRange(start, end) {
       const range = [];
@@ -166,10 +176,11 @@ export default {
 .inactive {
   color: gray;
 }
+
 .disabled {
   cursor: not-allowed;
 }
-@media screen and (max-width: 391px) {
+@media screen and (max-width: 500px) {
   .pagination {
     display: flex;
     list-style-type: none;

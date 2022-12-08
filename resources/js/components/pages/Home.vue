@@ -27,7 +27,7 @@
           <div
             class="w-4/5 xl:flex-1 xl:text-xl px-1 py-3 m-2 xl:my-3 text-white bg-gray-600 bg-opacity-75 font-semibold rounded-lg "
           >
-            走行会の情報を、まとめてチェック！
+            走行会の情報を、まとめてチェック
           </div>
           <div
             class="w-4/5 xl:flex-1 xl:text-xl px-3 py-3  m-2 xl:my-3 text-white bg-gray-600 bg-opacity-75 font-semibold rounded-lg "

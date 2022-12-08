@@ -27,8 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('event', 'EventController@index');
 
-
 Auth::routes();
+
 
 
 Route::get('api/event', [EventController::class, 'index']);
